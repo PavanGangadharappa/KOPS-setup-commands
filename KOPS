@@ -1,0 +1,26 @@
+sudo curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
+sudo apt install unzip python -y
+sudo apt-get install unzip
+sudo unzip awscli-bundle.zip
+sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+
+to install
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+install kops on ubuntu
+
+sudo apt install wget -y
+sudo wget https://github.com/kubernetes/kops/releases/download/1.10.0/kops-linux-amd64
+sudo chmod +x kops-linux-amd64
+sudo mv kops-linux-amd64 /usr/local/bin/kops
+
+create s3 bucket
+
+aws s3 mb s3://kops.pavan.bucket
+
+expose environmet variable
+
+export NAME=myfirstcluster.k8s.local
+export KOPS-STATE-STORE=s3://kops.pavan.bucket
